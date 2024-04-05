@@ -45,7 +45,7 @@
 		width: 100%;
 		height: min(65vh, 500px);
 
-		@include phone {
+		@include for-phone-only {
 			height: min(75vh, 400px);
 		}
 	}
@@ -55,11 +55,12 @@
 		bottom: 0;
 		width: 100%;
 		height: 15vh;
-		
+		/*Fix for safari gap*/
 		min-height: 100px;
 		max-height: 150px;
 	}
 
+	/* Animation */
 	.parallax > use {
 		@media screen and (prefers-reduced-motion: no-preference) {
 			animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
