@@ -4,9 +4,15 @@ import { HstSvelte } from '@histoire/plugin-svelte';
 export default defineConfig({
 	plugins: [HstSvelte()],
 	theme: {
-		title: 'Histoire for Eddy blog',
+		title: 'Histoire for Eddy Blog',
+		logo: {
+			square: './static/favicons/favicon.svg',
+			light: './static/favicons/favicon.svg',
+			dark: './static/favicons/favicon.svg'
+		},
+		favicon: './static/favicons/favicon.ico',
 		colors: {
-			primary: defaultColors.blue
+			primary: defaultColors.teal
 		}
 	}
 });

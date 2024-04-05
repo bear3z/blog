@@ -1,0 +1,122 @@
+{
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.preview.host": "http://localhost:5173/",
+	"frontMatter.content.autoUpdateDate": false,
+	"frontMatter.content.fmHighlight": true,
+	"frontMatter.dashboard.openOnStart": false,
+	"frontMatter.framework.startCommand": "npm run dev",
+	"frontMatter.taxonomy.seoDescriptionField": "excerpt",
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"name": "Article",
+			"pageBundle": false,
+			"previewPath": null,
+			"fields": [
+				{
+					"title": "Slug",
+					"name": "slug",
+					"type": "slug",
+					"default": "{{slug}}"
+				},
+				{
+					"title": "Title",
+					"name": "title",
+					"type": "string"
+				},
+				{
+					"title": "Excerpt",
+					"name": "excerpt",
+					"type": "string"
+				},
+				{
+					"title": "Cover Image",
+					"name": "coverImage",
+					"type": "image",
+					"isPreviewImage": true
+				},
+				{
+					"title": "Cover Image Alt Text",
+					"name": "coverImageAlt",
+					"type": "string"
+				},
+				{
+					"title": "Show Cover Image",
+					"name": "showImage",
+					"type": "boolean",
+					"description": "Whether to actually show the cover image on the page or just use it as a preview for social media links"
+				},
+				{
+					"title": "Social Image",
+					"name": "socialImage",
+					"type": "image",
+					"description": "Image to use when sharing on social media. If not provided, the cover image will be used instead."
+				},
+				{
+					"title": "Publish Date",
+					"name": "date",
+					"type": "datetime",
+					"default": "{{now}}",
+					"isPublishDate": true
+				},
+				{
+					"title": "Last modified date",
+					"name": "updated",
+					"type": "datetime",
+					"isModifiedDate": true
+				},
+				{
+					"title": "Show Table of Contents",
+					"name": "showToc",
+					"type": "boolean",
+					"default": false
+				},
+				{
+					"title": "Is hidden",
+					"name": "hidden",
+					"type": "draft",
+					"default": false
+				},
+				{
+					"title": "Tags",
+					"name": "tags",
+					"type": "tags"
+				},
+				{
+					"title": "Categories",
+					"name": "categories",
+					"type": "categories"
+				}
+			]
+		}
+	],
+	"frontMatter.taxonomy.fieldGroups": [
+		{
+			"id": "coloredTag",
+			"labelField": "label",
+			"fields": [
+				{
+					"title": "Label",
+					"name": "label",
+					"type": "string",
+					"single": true
+				},
+				{
+					"title": "Color",
+					"name": "color",
+					"type": "choice",
+					"choices": ["primary", "secondary"]
+				}
+			]
+		}
+	],
+	"frontMatter.framework.id": "other",
+	"frontMatter.content.publicFolder": "static/images",
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "Articles",
+			"path": "[[workspace]]/cms/articles",
+			"contentTypes": ["Article"],
+			"filePrefix": "yyyy-MM-dd"
+		}
+	]
+}
