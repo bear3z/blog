@@ -1,0 +1,20 @@
+.container {
+	@include padded-container;
+}
+
+ul, ol {
+	margin: 12px 0 12px 40px;
+	padding: 0;
+
+	li {
+		margin: 6px 0;
+
+		&::marker {
+			color: var(--color--primary);
+		}
+	}
+}
+
+ul {
+	list-style: outside;
+}

@@ -1,0 +1,87 @@
+@import '$lib/scss/_mixins.scss';
+
+@mixin base-theme {
+	@include define-color('primary', #0ca4a5);
+	@include define-color('primary-shade', #95caca);
+	@include define-color('primary-tint', #e3ffff);
+
+	@include define-color('secondary', #7058f5);
+	@include define-color('secondary-shade', #b3aae6);
+	@include define-color('secondary-tint', #f0f1fe);
+
+	@include define-color('yellow', #ffd400);
+
+	@include define-color('text', #1c1e26);
+	@include define-color('text-shade', #5d5f65);
+	@include define-color('text-inverse', #ffffff);
+	@include define-color('text-inverse-shade', #9eb4b5);
+
+	@include define-color('page-background', #f4f8fb);
+	@include define-color('post-page-background', #f3fbfc);
+	@include define-color('card-background', #ffffff);
+	@include define-color('post-card-background', #ffffff);
+
+	@include define-color('blockquote-background', #eff1f3);
+	@include define-color('marker-primary-background', #c4eeee);
+	@include define-color('marker-secondary-background', #d7d1fa);
+
+	--color--waves-start: rgba(var(--color--primary-rgb), 0.3);
+	--color--waves-end: rgba(var(--color--primary-rgb), 0.1);
+
+	--card-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+	--card-shadow-hover: 0px 4px 10px 8px rgb(0 0 0 / 10%);
+	--image-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06), 1px 3px 8px rgba(39, 44, 49, 0.03);
+}
+
+@mixin dark-theme {
+	@include define-color('primary', #00c2c2);
+	@include define-color('primary-shade', #076464);
+	@include define-color('primary-tint', #191f1f);
+
+	@include define-color('secondary', #ec7dff);
+	@include define-color('secondary-shade', #a66eaf);
+	@include define-color('secondary-tint', #191a29);
+
+	@include define-color('yellow', #ffd400);
+
+	@include define-color('text', #dbf4f3);
+	@include define-color('text-shade', #9eb4b5);
+	@include define-color('text-inverse', #1c1e26);
+	@include define-color('text-inverse-shade', #5d5f65);
+
+	@include define-color('page-background', #1c1e26);
+	@include define-color('post-page-background', #141519);
+	@include define-color('card-background', #32343e);
+	@include define-color('post-card-background', #141519);
+
+	@include define-color('blockquote-background', #1c1e26);
+	@include define-color('marker-primary-background', #076464);
+	@include define-color('marker-secondary-background', #a66eaf);
+
+	// Used for Callout component
+	@include define-color('callout-background', #1c1e26);
+	@include define-color('callout-background--info', #1d3874);
+	@include define-color('callout-accent--info', #6ca9f7);
+	@include define-color('callout-background--warning', #724413);
+	@include define-color('callout-accent--warning', #ffca39);
+	@include define-color('callout-background--error', #7c1d20);
+	@include define-color('callout-accent--error', #ff8082);
+	@include define-color('callout-background--success', #004737);
+	@include define-color('callout-accent--success', #00c48f);
+
+	@include define-color('code-inline-background', #2b3131);
+}
+
+:root {
+	@include base-theme;
+
+	&[data-theme='dark'] {
+		@include dark-theme;
+	}
+
+	&[data-theme='auto'] {
+		@media (prefers-color-scheme: dark) {
+			@include dark-theme;
+		}
+	}
+}

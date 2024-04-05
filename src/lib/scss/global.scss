@@ -1,27 +1,62 @@
 @import '$lib/scss/_reset.scss';
 @import '$lib/scss/_variables.scss';
+@import '$lib/scss/_themes.scss';
+@import '$lib/scss/_breakpoints.scss';
+@import '$lib/scss/_functions.scss';
+@import '$lib/scss/_mixins.scss';
+@import '$lib/scss/_base.scss';
+@import '$lib/scss/_typography.scss';
+@import '$lib/scss/_markdown.scss';
+@import '$lib/scss/_code-highlights.scss';
+@import '$lib/scss/animations.scss';
+@import '$lib/scss/view-transitions.scss';
+
+@import '@fontsource/ubuntu-mono';
 
 body {
-	transition: all 0.3s ease;
-	scroll-behavior: smooth;
-
+	--body-background-color: var(--color--page-background);
+	--body-background-color-rgb: var(--color--page-background-rgb);
+	background-color: var(--body-background-color);
+	color: var(--color--text);
+	fill: var(--color--text);
+	transition: all 0.4s ease;
+	font-family: var(--font--default);
 	line-height: 1.3;
 
 	height: 100%;
 	min-height: 100vh;
+	/* safari viewport bug fix */
 	min-height: -webkit-fill-available;
-	width: 100%;
 
+	width: 100%;
 	overflow-x: hidden;
+
+	// Prevents scroll from happening when hamburger menu is open
+	&:has(.hamburger-menu #control:checked) {
+		overflow: hidden;
+	}
 }
 
 html {
-	scroll-behavior: smooth;
-	font-size: 16px;
+	font-size: 18px;
 	width: 100%;
+
+	&.smooth-scroll {
+		scroll-behavior: smooth;
+		body {
+			scroll-behavior: smooth;
+		}
+	}
 }
 
 #svelte-root {
 	height: 100%;
 	position: relative;
+}
+
+* {
+	&:focus-visible {
+		outline: 2px dashed var(--color--secondary);
+		outline-offset: 4px;
+	}
 }
