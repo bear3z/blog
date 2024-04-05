@@ -1,0 +1,35 @@
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-Agent: FacebookBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-Agent: PerplexityBot
+Disallow: /
+
+User-Agent: Claude-Web
+Disallow: /
+
+User-Agent: cohere-ai
+Disallow: /
