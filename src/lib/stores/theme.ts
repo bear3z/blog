@@ -5,6 +5,8 @@ function createTheme() {
   const currentTheme = (() => {
     if (browser) {
       return localStorage.getItem('theme-preference') || 'auto';
+    } else {
+      return undefined;
     }
   })();
 
