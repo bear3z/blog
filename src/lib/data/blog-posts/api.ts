@@ -50,6 +50,24 @@ export const getAllSlugs = async (): Promise<string[]> => {
   return allPosts.items?.map((post) => post.slug) ?? [];
 }
 
+export const getPostsByCategory = async (category: string, page?: number, count?: number, showHidden = false): Promise<PaginatedResponse<BlogPost>> => {
+  const allPosts = await getPosts(undefined, undefined, showHidden);
+
+  let filteredPosts = allPosts.items?.filter(
+    (post) => post.categories.some((cat) => cat.toLowerCase() === category.toLowerCase())
+  ) ?? [];
+
+  const paginatedPosts = paginate(filteredPosts, page, count);
+
+  return {
+    items: paginatedPosts,
+    totalItems: filteredPosts.length,
+    totalPages: Math.ceil(filteredPosts.length / (count ?? PAGE_SIZE)),
+    currentPage: page ?? 1,
+    currentCategory: category
+  }
+}
+
 const paginate = (items: any[], page?: number, count?: number): any[] => {
   const pageSize = count ?? PAGE_SIZE;
   const startIndex = page ? (page - 1) * pageSize : 0;
