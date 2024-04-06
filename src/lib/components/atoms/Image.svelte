@@ -10,10 +10,8 @@
 	export let fullBleed: boolean | undefined = undefined;
 	export let lazy: boolean = true;
 
-	export let formats: string[] = ['avif', 'webp', 'png'];
+	export let formats: string[] = ['webp'];
 	export let widths: string[] | undefined = undefined;
-
-	// $: fileName = src ? src.split('.')[0] : '';
 
 	let fileName: string;
 	let srcSet: string | undefined;
@@ -26,13 +24,7 @@
 	function buildSrcset() {
 		if (dev || HttpRegex.test(src)) return;
 
-		// Only build srcset if files are png, jpg, jpeg, webp or avif
 		if (!src.match(/\.(png|jpe?g|webp|avif)$/)) return;
-
-		// If src is the images folder, replace it with optimized-images
-		// "images" must be in the beginning of the string (with or without a leading slash)
-		src = src.replace(/^\/?images/, '/optimized-images');
-		fileName = fileName.replace(/^\/?images/, '/optimized-images');
 
 		let srcset = '';
 
