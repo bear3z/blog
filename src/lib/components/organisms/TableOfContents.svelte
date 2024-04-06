@@ -16,7 +16,7 @@
 <div class="table-of-contents">
 	<div class="wrapper">
 		<Toc keepActiveTocItemInView={false} breakpoint={900} blurParams={{ duration: 0 }}>
-			<strong class="title" slot="title">Table of Contents</strong>
+			<strong slot="title"></strong>
 
 			<ListIcon slot="open-toc-icon" />
 		</Toc>
@@ -70,11 +70,6 @@
 		:global(.toc ol li) {
 			border-radius: 6px;
 		}
-	}
-
-	.title {
-		display: inline-block;
-		margin-bottom: 10px;
 	}
 
 	@include for-tablet-portrait-down {
