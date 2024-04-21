@@ -18,10 +18,10 @@
 
 	$: {
 		fileName = src ? src.split('.')[0] : '';
-		srcSet = buildSrcset();
+		srcSet = buildSrcset(fileName);
 	}
 
-	function buildSrcset() {
+	function buildSrcset(fileName: string) {
 		if (dev || HttpRegex.test(src)) return;
 
 		if (!src.match(/\.(png|jpe?g|webp|avif)$/)) return;
@@ -30,7 +30,7 @@
 
 		if (widths) {
 			for (let i = 0; i < widths.length; i++) {
-				srcset += `${fileName}-${widths[i]}.${formats[0]} ${widths[i]}w`;
+				srcset += `${fileName}-${widths[i]}.${src.split('.')[1]} ${widths[i]}w`;
 
 				if (i < widths.length - 1) {
 					srcset += ', ';
@@ -38,7 +38,7 @@
 			}
 		} else {
 			for (let i = 0; i < formats.length; i++) {
-				srcset += `${fileName}.${formats[i]}`;
+				srcset += `${fileName}.${src.split('.')[1]}`;
 
 				if (i < formats.length - 1) {
 					srcset += ', ';
