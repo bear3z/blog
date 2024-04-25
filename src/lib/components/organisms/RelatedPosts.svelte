@@ -5,6 +5,13 @@
 	import Button from '../atoms/Button.svelte';
 
 	export let posts: BlogPost[];
+
+	function backToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
 </script>
 
 <ContentSection
@@ -12,7 +19,13 @@
 	title="其他文章"
 	description="如果你很閒的話可以再看看這些：）"
 >
-	<div slot="button">
+	<div
+		slot="button"
+		class="buttons"
+	>
+		<Button on:click={backToTop}>
+			移置頂部
+		</Button>
 		<Button href="/blog" additionalClass="plausible-event-name=Related+Post+Click">
 			回到列表
 		</Button>
@@ -36,6 +49,11 @@
 
 <style lang="scss">
 	@import '$lib/scss/breakpoints.scss';
+
+	.buttons {
+		display: flex;
+		gap: 24px;
+	}
 
 	.simple-grid {
 		width: 100%;
