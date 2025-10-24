@@ -44,5 +44,8 @@
 		"@fontsource/ubuntu-mono": "^4.5.11",
 		"svelte-toc": "^0.5.6",
 		"tinacms": "^1.5.29"
+	},
+	"engines": {
+		"node": "^20.0.0"
 	}
 }
