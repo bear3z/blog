@@ -1,17 +1,20 @@
-# See https://fly.io/docs/reference/configuration/
+# fly.toml app configuration file generated for blog-wujaag on 2026-09-02T07:17:54Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = 'eddy-blog'
+app = 'blog-wujaag'
 primary_region = 'nrt'
 
 [build]
 
 [env]
-  PORT = '3000'
-  NODE_ENV = 'production'
-  HOST = '0.0.0.0'
-  PROTOCOL_HEADER = 'x-forwarded-proto'
-  HOST_HEADER = 'host'
   ADDRESS_HEADER = 'Fly-Client-IP'
+  HOST = '0.0.0.0'
+  HOST_HEADER = 'host'
+  NODE_ENV = 'production'
+  PORT = '3000'
+  PROTOCOL_HEADER = 'x-forwarded-proto'
 
 [http_service]
   internal_port = 3000
@@ -25,3 +28,4 @@ primary_region = 'nrt'
   memory = '512mb'
   cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 512
