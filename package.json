@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "tinacms dev -c \"vite dev --host\"",
 		"build": "tinacms build && vite build",
+		"start": "node build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
@@ -39,6 +40,7 @@
 		"@sveltejs/adapter-node": "^5.4.0"
 	},
 	"type": "module",
+	"packageManager": "pnpm@11.24.0",
 	"dependencies": {
 		"@fontsource/ubuntu-mono": "^4.5.11",
 		"marked": "~5.0.0",

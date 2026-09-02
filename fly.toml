@@ -1,0 +1,27 @@
+# See https://fly.io/docs/reference/configuration/
+
+app = 'eddy-blog'
+primary_region = 'nrt'
+
+[build]
+
+[env]
+  PORT = '3000'
+  NODE_ENV = 'production'
+  HOST = '0.0.0.0'
+  PROTOCOL_HEADER = 'x-forwarded-proto'
+  HOST_HEADER = 'host'
+  ADDRESS_HEADER = 'Fly-Client-IP'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1

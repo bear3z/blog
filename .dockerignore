@@ -1,0 +1,17 @@
+.git
+.github
+.svelte-kit
+.histoire
+.jampack
+.idea
+.zeabur
+.frontmatter
+.DS_Store
+node_modules
+build
+.env
+.env.*
+!.env.example
+Dockerfile*
+.dockerignore
+fly.toml
