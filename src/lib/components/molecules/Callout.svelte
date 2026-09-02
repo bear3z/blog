@@ -22,7 +22,7 @@
 </div>
 
 <style lang="scss">
-	@import '$lib/scss/_mixins.scss';
+	@use '$lib/scss/mixins' as *;
 	.callout-block {
 		--bg-color: var(--color--page-background);
 		--accent-color: transparent;

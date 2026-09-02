@@ -31,9 +31,9 @@
 			on:change={handleToggle}
 		/>
 
-		<span class="line one" />
-		<span class="line two" />
-		<span class="line three" />
+		<span class="line one"></span>
+		<span class="line two"></span>
+		<span class="line three"></span>
 
 		<ul id="menu" class:closing={menuIsClosing}>
 			<li class="socials"><Socials /></li>
@@ -47,7 +47,7 @@
 </nav>
 
 <style lang="scss">
-	@import '$lib/scss/breakpoints.scss';
+	@use '$lib/scss/breakpoints' as *;
 	.wrapper {
 		display: grid;
 		place-items: center;

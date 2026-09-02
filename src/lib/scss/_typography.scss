@@ -1,3 +1,5 @@
+@use 'breakpoints' as *;
+
 a {
 	color: var(--color--text);
 	text-decoration-color: var(--color--primary);

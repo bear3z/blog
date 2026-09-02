@@ -12,7 +12,7 @@
 </mark>
 
 <style lang="scss">
-	@import '$lib/scss/mixins.scss';
+	@use '$lib/scss/mixins' as *;
 	mark {
 		@include marker-highlight;
 

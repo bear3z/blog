@@ -1,5 +1,9 @@
-@import './_breakpoints.scss';
-@import './_functions.scss';
+@forward 'breakpoints';
+@forward 'functions';
+
+@use 'sass:color';
+@use 'breakpoints' as *;
+@use 'functions' as *;
 
 @mixin padded-container {
 	width: 100%;
@@ -31,18 +35,19 @@
 @mixin define-color($title, $color) {
 	--color--#{$title}: #{$color};
 
-	--color--#{$title}-h: #{hue($color)};
-	--color--#{$title}-l: #{lightness($color)};
-	--color--#{$title}-s: #{saturation($color)};
-	--color--#{$title}-a: #{alpha($color)};
+	--color--#{$title}-h: #{color.channel($color, 'hue', $space: hsl)};
+	--color--#{$title}-l: #{color.channel($color, 'lightness', $space: hsl)};
+	--color--#{$title}-s: #{color.channel($color, 'saturation', $space: hsl)};
+	--color--#{$title}-a: #{color.channel($color, 'alpha')};
 
-	--color--#{$title}-rgb: #{red($color)}, #{green($color)}, #{blue($color)};
+	--color--#{$title}-rgb: #{color.channel($color, 'red', $space: rgb)},
+		#{color.channel($color, 'green', $space: rgb)}, #{color.channel($color, 'blue', $space: rgb)};
 
-	--color--#{$title}-contrast: #{if(
-			brightness($color) > 186,
-			var(--color--text),
-			var(--color--text-inverse)
-		)};
+	@if brightness($color) > 186 {
+		--color--#{$title}-contrast: var(--color--text);
+	} @else {
+		--color--#{$title}-contrast: var(--color--text-inverse);
+	}
 }
 
 @mixin marker-highlight {

@@ -65,7 +65,7 @@
 					alt={post.coverImage.alt}
 					lazy={false}
 				/>
-				<div class="cover-image-overlay" />
+				<div class="cover-image-overlay"></div>
 			</div>
 		{/if}
 
@@ -93,10 +93,10 @@
 			{/if}
 
 			{#if !showCardLayout}
-				<div class="background-blurrer" />
-				<div class="blob one" />
-				<div class="blob two" />
-				<div class="blob three" />
+				<div class="background-blurrer"></div>
+				<div class="blob one"></div>
+				<div class="blob two"></div>
+				<div class="blob three"></div>
 			{/if}
 		</main>
 
@@ -105,7 +105,7 @@
 {/if}
 
 <style lang="scss">
-	@import '$lib/scss/_mixins.scss';
+	@use '$lib/scss/mixins' as *;
 
 	.article-layout {
 		--body-background-color: var(--color--post-page-background);

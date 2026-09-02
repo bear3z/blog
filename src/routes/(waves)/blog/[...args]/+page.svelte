@@ -47,7 +47,7 @@
 {/key}
 
 <style lang="scss">
-	@import '$lib/scss/_mixins.scss';
+	@use '$lib/scss/mixins' as *;
 
 	.grid {
 		width: 100%;

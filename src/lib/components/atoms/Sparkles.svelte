@@ -26,7 +26,7 @@
 	};
 
 	let sparkles: SparkleType[] = [];
-	let sparklesInterval: NodeJS.Timer;
+	let sparklesInterval: ReturnType<typeof setInterval>;
 
 	onMount(() => {
 		sparklesInterval = setInterval(() => {

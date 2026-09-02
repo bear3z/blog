@@ -64,7 +64,7 @@
 </Card>
 
 <style lang="scss">
-	@import '../../scss/breakpoints.scss';
+	@use '../../scss/breakpoints' as *;
 	.content {
 		display: flex;
 		flex-direction: column;

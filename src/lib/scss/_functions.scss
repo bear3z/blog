@@ -1,3 +1,12 @@
+@use 'sass:color';
+
 @function brightness($color) {
-	@return calc(((red($color) * 0.299) + (green($color) * 0.587) + (blue($color) * 0.114)) / 255);
+	@return calc(
+		(
+				(color.channel($color, 'red', $space: rgb) * 0.299) +
+					(color.channel($color, 'green', $space: rgb) * 0.587) +
+					(color.channel($color, 'blue', $space: rgb) * 0.114)
+			) /
+			255
+	);
 }

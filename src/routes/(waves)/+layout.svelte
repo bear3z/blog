@@ -27,10 +27,10 @@
 <Header />
 
 <main>
-	<div class="background-blurrer" />
-	<div class="blob one" />
-	<div class="blob two" />
-	<div class="blob three" />
+	<div class="background-blurrer"></div>
+	<div class="blob one"></div>
+	<div class="blob two"></div>
+	<div class="blob three"></div>
 	<slot />
 </main>
 
