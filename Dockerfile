@@ -13,15 +13,10 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
 
 FROM deps AS build
 COPY . .
-# Tina Cloud credentials are optional. Without them the admin client is
-# generated locally so the public site still builds from cms/articles.
-ARG VITE_TINA_CLIENT_ID
-ARG TINA_TOKEN
-RUN if [ -n "$VITE_TINA_CLIENT_ID" ] && [ -n "$TINA_TOKEN" ]; then \
-		VITE_TINA_CLIENT_ID="$VITE_TINA_CLIENT_ID" TINA_TOKEN="$TINA_TOKEN" pnpm build; \
-	else \
-		pnpm exec tinacms build --local --skip-cloud-checks && pnpm exec vite build; \
-	fi
+# Public pages prerender from cms/articles. Tina admin is local-dev only:
+# tinacms build SIGKILLs Depot (OOM), and --local admin needs a GraphQL
+# server that is not running at runtime.
+RUN pnpm exec vite build
 
 FROM base AS prod-deps
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
